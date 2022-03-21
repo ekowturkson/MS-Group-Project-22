@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using MS_Group_Project.Model;
+using MS_Group_Project.Repositories;
+using MS_Group_Project.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//builder.Services.AddScoped<IDbInitializer>
+
+builder.Services.AddDbContext<QuestionContext>(options => options.UseInMemoryDatabase(databaseName:"QDb"));
+
+builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
+builder.Services.AddTransient<IQuestionSurveyService, QuestionSurveyService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

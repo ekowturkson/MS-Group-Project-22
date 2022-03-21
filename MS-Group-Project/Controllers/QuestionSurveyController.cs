@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MS_Group_Project.Repositories;
+using MS_Group_Project.Services;
 
 namespace MS_Group_Project.Controllers
 {
@@ -7,10 +9,18 @@ namespace MS_Group_Project.Controllers
     [ApiController]
     public class QuestionSurveyController : ControllerBase
     {
-        [HttpGet]
-        public string GetAll()
+        public readonly IQuestionSurveyService _questionSurveyService;
+
+        public QuestionSurveyController(IQuestionSurveyService questionSurveyService)
         {
-            return "OK.";
+            _questionSurveyService = questionSurveyService;
+           
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_questionSurveyService.GetQuestionsSurveyAsync());
         }
     }
 }
