@@ -14,7 +14,13 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddScoped<IDbInitializer>
 
-builder.Services.AddDbContext<QuestionContext>(options => options.UseInMemoryDatabase(databaseName:"QDb"));
+builder.Services.AddDbContext<QuestionContext>(options =>
+{
+    options.UseInMemoryDatabase(databaseName: "QDb");
+    options.EnableSensitiveDataLogging();
+    
+}
+) ;
 
 builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
 builder.Services.AddTransient<IQuestionSurveyService, QuestionSurveyService>();

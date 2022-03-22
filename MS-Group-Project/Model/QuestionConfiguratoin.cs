@@ -6,10 +6,6 @@ namespace MS_Group_Project.Model
 {
     public class QuestionConfiguratoin ///: IEntityTypeConfiguration<Questions>
     {
-        public void Configure(EntityTypeBuilder<Questions> builder)
-        {
-            //builder.HasKey(a => a.QuestionsId);
-            
-        }
+       
     }
 }

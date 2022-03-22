@@ -4,17 +4,16 @@
     {
         public int QuestionsId { get; set; }
         public string? QuestionsName { get; set; }
+       
 
-        public Questions(int questionsId, string? questionsName)
-        {
-            QuestionsId = questionsId;
-            QuestionsName = questionsName;
-        }
+      
+        //public Questions(int questionsId, string? questionsName,List<QuestionOptions> options)
+        //{
+        //    QuestionsId = questionsId;
+        //    QuestionsName = questionsName;
+        //    QuestionsOptions = options;
+        //}
 
-        // public ICollection<QuestionOptions>? QuestionsOptions { get; set; }
-
-
-
-
-   }
+       
+    }
 }
