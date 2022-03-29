@@ -7,9 +7,9 @@ namespace MS_Group_Project.Model
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using var context = new QuestionContext(serviceProvider.GetRequiredService<DbContextOptions<QuestionContext>>());
-            if (context.Questions.Any()) return;
-            SeedData(context);
+            //using var context = new QuestionContext(serviceProvider.GetRequiredService<DbContextOptions<QuestionContext>>());
+            //if (context.Questions.Any()) return;
+            //SeedData(context);
         }
 
         public static void SeedData(QuestionContext context)

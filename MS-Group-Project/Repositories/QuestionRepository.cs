@@ -6,6 +6,8 @@ namespace MS_Group_Project.Repositories
 {
     public class QuestionRepository:IQuestionRepository
     {
+
+        //repository for all question
         public readonly QuestionContext _questionContext;
         public QuestionRepository(QuestionContext questionContext)
         {
@@ -17,14 +19,9 @@ namespace MS_Group_Project.Repositories
         public IEnumerable<Questions> GetAll()
         {
 
-             return _questionContext.Questions.ToList();
-
-            //var quesiton = (from a in _questionContext.Questions
-            //                join a2 in _questionContext.QuestionOptions on a.QuestionsId equals a2.QuestionId
-            //                select a).ToList();
+             return _questionContext.Questions.Include(x=>x.AnswerOption).ToList();
 
 
-            //return quesiton;
         }
     }
 }

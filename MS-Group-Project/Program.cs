@@ -16,11 +16,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<QuestionContext>(options =>
 {
-    options.UseInMemoryDatabase(databaseName: "QDb");
-    options.EnableSensitiveDataLogging();
+    options.UseSqlServer("Data Source=DESKTOP-I0V0QM4\\MSSQLSERVER01;Initial Catalog=MsGroupProject;Integrated Security=True");
     
+
 }
-) ;
+);
 
 builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
 builder.Services.AddTransient<IQuestionSurveyService, QuestionSurveyService>();
